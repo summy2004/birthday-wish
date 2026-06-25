@@ -1,72 +1,57 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Happy Birthday Shaka</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body { background: #0c0204; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-.box { border: 1px solid #ff96ac; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); max-width: 350px; margin: 50px auto; }
-.btn { background: #ff96ac; color: #0c0204; border: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 15px; }
-input { background: transparent; border: 1px solid #ff96ac; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 18px; width: 80px; }
-.hidden { display: none; }
-p { line-height: 1.6; white-space: pre-line; }
-</style>
+    <title>Happy Birthday Shaka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: #0c0204; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .box { border: 1px solid #ff96ac; padding: 25px 20px; border-radius: 15px; background: rgba(255,255,255,0.03); max-width: 350px; margin: 50px auto; box-shadow: 0 0 15px rgba(255,140,160,0.2); }
+        .btn { background: #ff96ac; color: #0c0204; border: none; padding: 12px 30px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 16px; }
+        .hidden { display: none; }
+        p { line-height: 1.6; white-space: pre-line; font-size: 15px; }
+        .birthday-pic { width: 100%; max-width: 280px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #ff96ac; }
+    </style>
 </head>
 <body>
-​<!-- SCREEN 1: LOCK SCREEN -->
-<div id="screen1" class="box">
-<h3>🔐 LOCKED</h3>
-<p>Hint: Enter Passkey (2025)</p>
-<input type="number" id="codeIn" placeholder="0000">
 
-<button class="btn" onclick="checkCode()">Unlock</button>
-</div>
-​<!-- SCREEN 2: AGE COUNTER -->
-<div id="screen2" class="box hidden">
-<h3>⏳ Time Spent Together</h3>
-<p>27 June Se Lekar Ab Tak:</p>
-<h2 id="counter">Calculating...</h2>
-<button class="btn" onclick="nextScreen()">Next ➡️</button>
-</div>
-​<!-- SCREEN 3: LETTER -->
-<div id="screen3" class="box hidden" style="text-align: left;">
-<h3 style="text-align: center; color: #ff96ac;">🌸 For Shaka 🤍</h3>
-<p>Idk what to say, but Happy Birthday to the person who knows me better than anyone else in this world... 🌸
-​Ik being with me can be boring sometimes.😒
-​And I'm honestly not the best at showing how I feel but please know that u mean everything to me.🫶🏻
-​I’m deeply sorry for all the times I’ve hurt u, for the mistakes I made, and for anything that ever made u upset.🥹
-​No matter what, I’m always here for u.Just look around, and u'll find me.​I'll always be right there to irritate u! 😂
-​Let's promise stay exactly like this & can't be change,ok?
-​❤︎⁠ Happy Birthday Shaka 🤍</p>
-</div>
-​<script>
-function checkCode() {
-var input = document.getElementById("codeIn").value;
-if(input == "2025") {
-document.getElementById("screen1").classList.add("hidden");
-document.getElementById("screen2").classList.remove("hidden");
-startCounter();
-} else {
-alert("Wrong Passkey! Try again.");
-}
-}
-​function startCounter() {
-setInterval(function() {
-var birthday = new Date("June 27, 2025 00:00:00").getTime();
-var now = new Date().getTime();
-var diff = now - birthday;
-​var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-var secs = Math.floor((diff % (1000 * 60)) / 1000);
-​document.getElementById("counter").innerHTML = days + "d " + hours + "h " + mins + "m " + secs + "s";
-}, 1000);
-}
-​function nextScreen() {
-document.getElementById("screen2").classList.add("hidden");
-document.getElementById("screen3").classList.remove("hidden");
-}
-</script>
+    <!-- SCREEN 1: AGE COUNTER -->
+    <div id="screen1" class="box">
+        <h3>⏳ Time Spent Together</h3>
+        <p>27 June Se Lekar Ab Tak:</p>
+        <h2 style="color: #ff96ac; margin: 20px 0;">363 Days...</h2>
+        <button class="btn" onclick="nextScreen()">Next 👀 ➡️</button>
+    </div>
+
+    <!-- SCREEN 2: LETTER -->
+    <div id="screen2" class="box hidden" style="text-align: left;">
+        <h3 style="text-align: center; color: #ff96ac; margin-bottom: 15px;">🌸 For Shaka 🤍</h3>
+        
+        <!-- 📸 PICS SECTION -->
+        <div style="text-align: center;">
+            <img src="https://i.ibb.co/RkXp6bF/1000027567.jpg" class="birthday-pic" alt="Pic 1">
+            <img src="https://i.ibb.co/4WH6V5S/1000027590.jpg" class="birthday-pic" alt="Pic 2">
+        </div>
+
+        <p>Idk what to say, but Happy Birthday to the person who knows me better than anyone else in this world... 🌸
+
+        Ik being with me can be boring sometimes.😒
+
+        And I'm honestly not the best at showing how I feel but please know that u mean everything to me.🫶🏻
+
+        I’m deeply sorry for all the times I’ve hurt u, for the mistakes I made, and for anything that ever made u upset.🥹
+
+        No matter what, I’m always here for u.Just look around, and u'll find me.​I'll always be right there to irritate u! 😂
+
+        Let's promise stay exactly like this & can't be change, ok?
+
+        ❤︎⁠ Happy Birthday Shaka 🤍</p>
+    </div>
+
+    <script>
+        function nextScreen() {
+            document.getElementById("screen1").style.display = "none";
+            document.getElementById("screen2").style.display = "block";
+        }
+    </script>
 </body>
 </html>
-
