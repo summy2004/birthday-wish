@@ -1,259 +1,72 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+<title>Happy Birthday Shaka</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Special Wish</title>
-
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Poppins',sans-serif;
-}
-
-body{
-  height:100vh;
-  overflow:hidden;
-  background:#000;
-  color:white;
-}
-
-.screen{
-  height:100vh;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  text-align:center;
-  position:absolute;
-  transition:1s;
-}
-
-.hide{
-  opacity:0;
-  pointer-events:none;
-}
-.screen:not(.hide) {
-  pointer-events: auto;
-}
-
-h1{
- font-size:35px;
- color:#f5c76b;
-}
-
-p{
- margin:20px;
- font-size:18px;
-}
-
-
-.loader{
- width:100px;
- height:100px;
- border-radius:50%;
- border:5px solid #333;
- border-top:5px solid #f5c76b;
- animation:spin 2s linear infinite;
-}
-
-@keyframes spin{
- from{transform:rotate(0deg)}
- to{transform:rotate(360deg)}
-}
-
-
-button{
- padding:14px 35px;
- border:none;
- border-radius:30px;
- background:#f5c76b;
- color:#000;
- font-size:18px;
- cursor:pointer;
-}
-
-
-.ring{
- position:absolute;
- border:1px solid #f5c76b;
- border-radius:50%;
- width:120px;
- height:120px;
- animation:ripple 2.5s infinite;
-}
-
-.ring2{
- width:180px;
- height:180px;
- animation-delay:1s;
-}
-
-@keyframes ripple{
- from{
- transform:scale(.5);
- opacity:1;
- }
- to{
- transform:scale(2);
- opacity:0;
- }
-}
-
-
-.gallery{
- display:flex;
- gap:15px;
-}
-
-.gallery img{
- width:90px;
- height:120px;
- object-fit:cover;
- border-radius:15px;
- border:2px solid #f5c76b;
-}
-
-
-.heart{
- font-size:60px;
- animation:beat 1s infinite;
-}
-
-@keyframes beat{
-50%{
-transform:scale(1.2);
-}
-}
-
+body { background: #0c0204; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+.box { border: 1px solid #ff96ac; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); max-width: 350px; margin: 50px auto; }
+.btn { background: #ff96ac; color: #0c0204; border: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+input { background: transparent; border: 1px solid #ff96ac; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 18px; width: 80px; }
+.hidden { display: none; }
+p { line-height: 1.6; white-space: pre-line; }
 </style>
-
 </head>
-
-
 <body>
+​<!-- SCREEN 1: LOCK SCREEN -->
+<div id="screen1" class="box">
+<h3>🔐 LOCKED</h3>
+<p>Hint: Enter Passkey (2025)</p>
+<input type="number" id="codeIn" placeholder="0000">
 
-
-<div class="screen" id="one">
-
-<div class="loader"></div>
-
-<h1 style="margin-top:30px">
-Loading Memories...
-</h1>
-
+<button class="btn" onclick="checkCode()">Unlock</button>
 </div>
-
-
-
-<div class="screen hide" id="two">
-
-<div class="ring"></div>
-<div class="ring ring2"></div>
-
-<h1>For Someone Special ❤️</h1>
-
-<p>
-A small surprise is waiting for you
-</p>
-
-<button onclick="next()">
-Open
-</button>
-
+​<!-- SCREEN 2: AGE COUNTER -->
+<div id="screen2" class="box hidden">
+<h3>⏳ Time Spent Together</h3>
+<p>27 June Se Lekar Ab Tak:</p>
+<h2 id="counter">Calculating...</h2>
+<button class="btn" onclick="nextScreen()">Next ➡️</button>
 </div>
-
-
-
-<div class="screen hide" id="three">
-
-<h1>Happy Birthday Shaka 🫶🏼🎂</h1>
-
-<p>
-May your life always be full of happiness,
-smiles and beautiful moments.
-</p>
-
-<div class="heart">
-❤️
+​<!-- SCREEN 3: LETTER -->
+<div id="screen3" class="box hidden" style="text-align: left;">
+<h3 style="text-align: center; color: #ff96ac;">🌸 For Shaka 🤍</h3>
+<p>Idk what to say, but Happy Birthday to the person who knows me better than anyone else in this world... 🌸
+​Ik being with me can be boring sometimes.😒
+​And I'm honestly not the best at showing how I feel but please know that u mean everything to me.🫶🏻
+​I’m deeply sorry for all the times I’ve hurt u, for the mistakes I made, and for anything that ever made u upset.🥹
+​No matter what, I’m always here for u.Just look around, and u'll find me.​I'll always be right there to irritate u! 😂
+​Let's promise stay exactly like this & can't be change, ok?
+​❤︎⁠ Happy Birthday Shaka 🤍</p>
 </div>
-
-<button onclick="next2()">
-See Memories
-</button>
-
-</div>
-
-
-
-<div class="screen hide" id="four">
-
-<h1>Beautiful Moments 📸</h1>
-
-<div class="gallery">
-
-<img src="https://picsum.photos/200">
-<img src="https://picsum.photos/201">
-<img src="https://picsum.photos/202">
-
-</div>
-
-
-<button onclick="finish()" style="margin-top:30px">
-Read Message
-</button>
-
-</div>
-
-
-
-<div class="screen hide" id="five">
-
-<h1>My Message 💌</h1>
-
-<p>
-  Idk what to say, but Happy Birthday to the person who knows me better than anyone else in this world... 🌸
-Ik being with me can be boring sometimes.😒
-And I'm honestly not the best at showing how I feel but please know that u mean everything to me.🫶🏻
-I’m deeply sorry for all the times I’ve hurt u, for the mistakes I made, and for anything that ever made u upset.🥹
-No matter what, I’m always here for u.Just look around, and u'll find me.​I'll always be right there to irritate u! 😂
-Let's promise stay exactly like this & can't be change,ok?
-❤︎⁠Happy Birthday Shaka🤍
-</p>
-
-</div>
-
-
-
-<script>
-
-setTimeout(()=>{
-document.getElementById("one").classList.add("hide");
-document.getElementById("two").classList.remove("hide");
-},3000);
-
-
-function next(){
-document.getElementById("two").classList.add("hide");
-document.getElementById("three").classList.remove("hide");
+​<script>
+function checkCode() {
+var input = document.getElementById("codeIn").value;
+if(input == "2025") {
+document.getElementById("screen1").classList.add("hidden");
+document.getElementById("screen2").classList.remove("hidden");
+startCounter();
+} else {
+alert("Wrong Passkey! Try again.");
 }
-
-
-function next2(){
-document.getElementById("three").classList.add("hide");
-document.getElementById("four").classList.remove("hide");
 }
-
-
-function finish(){
-document.getElementById("four").classList.add("hide");
-document.getElementById("five").classList.remove("hide");
+​function startCounter() {
+setInterval(function() {
+var birthday = new Date("June 27, 2025 00:00:00").getTime();
+var now = new Date().getTime();
+var diff = now - birthday;
+​var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+var secs = Math.floor((diff % (1000 * 60)) / 1000);
+​document.getElementById("counter").innerHTML = days + "d " + hours + "h " + mins + "m " + secs + "s";
+}, 1000);
 }
-
+​function nextScreen() {
+document.getElementById("screen2").classList.add("hidden");
+document.getElementById("screen3").classList.remove("hidden");
+}
 </script>
-
-
 </body>
 </html>
