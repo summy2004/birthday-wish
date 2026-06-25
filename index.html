@@ -6,51 +6,49 @@
     <style>
         body { background: #0c0204; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
         .box { border: 1px solid #ff96ac; padding: 25px 20px; border-radius: 15px; background: rgba(255,255,255,0.03); max-width: 350px; margin: 50px auto; box-shadow: 0 0 15px rgba(255,140,160,0.2); }
-        .btn { background: #ff96ac; color: #0c0204; border: none; padding: 12px 30px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 16px; }
+        .btn { background: #ff96ac; color: #0c0204; border: none; padding: 12px 30px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 20px; }
         .hidden { display: none; }
-        p { line-height: 1.6; white-space: pre-line; font-size: 15px; }
-        .birthday-pic { width: 100%; max-width: 280px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #ff96ac; display: block; margin-left: auto; margin-right: auto; }
+        input { padding: 10px; border-radius: 10px; border: 1px solid #ff96ac; background: transparent; color: white; text-align: center; width: 80%; }
+        .birthday-pic { width: 100%; max-width: 280px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #ff96ac; }
     </style>
 </head>
 <body>
 
-    <!-- SCREEN 1: AGE COUNTER -->
+    <!-- SCREEN 1: LOCK -->
     <div id="screen1" class="box">
-        <h3>⏳ Time Spent Together</h3>
-        <p>27 June Se Lekar Ab Tak:</p>
-        <h2 style="color: #ff96ac; margin: 20px 0;">363 Days...</h2>
-        <button class="btn" onclick="nextScreen()">Next 👀 ➡️</button>
+        <h3>Enter Password 🔒</h3>
+        <input type="number" id="pass" placeholder="Enter Year">
+        <br><button class="btn" onclick="checkPass()">Unlock</button>
     </div>
 
-    <!-- SCREEN 2: LETTER -->
-    <div id="screen2" class="box hidden" style="text-align: left;">
-        <h3 style="text-align: center; color: #ff96ac; margin-bottom: 15px;">🌸 For Shaka 🤍</h3>
-        
-        <!-- 📸 APKI DONO ASLI PICS YAHAN HAIN -->
+    <!-- SCREEN 2: CANDLE -->
+    <div id="screen2" class="box hidden">
+        <h3>Blow the candle! 🕯️</h3>
+        <h1 style="font-size: 80px;">🎂</h1>
+        <button class="btn" onclick="nextScreen('screen3')">Blow! 💨</button>
+    </div>
+
+    <!-- SCREEN 3: LETTER & PICS -->
+    <div id="screen3" class="box hidden" style="text-align: left;">
+        <h3 style="text-align: center; color: #ff96ac;">Happy Birthday Shaka 🌸</h3>
         <div style="text-align: center;">
-            <img src="https://i.ibb.co/MytJybFk/image.jpg" class="birthday-pic" alt="Shaka Pic 1">
-            <img src="https://i.ibb.co/XfQjgR9v/image.jpg" class="birthday-pic" alt="Shaka Pic 2">
+            <img src="https://i.ibb.co/MytJybFk/image.jpg" class="birthday-pic">
+            <img src="https://i.ibb.co/XfQjgR9v/image.jpg" class="birthday-pic">
         </div>
-
-        <p>Idk what to say, but Happy Birthday to the person who knows me better than anyone else in this world... 🌸
-
-        Ik being with me can be boring sometimes.😒
-
-        And I'm honestly not the best at showing how I feel but please know that u mean everything to me.🫶🏻
-
-        I’m deeply sorry for all the times I’ve hurt u, for the mistakes I made, and for anything that ever made u upset.🥹
-
-        No matter what, I’m always here for u.Just look around, and u'll find me.​I'll always be right there to irritate u! 😂
-
-        Let's promise stay exactly like this & can't be change, ok?
-
-        ❤︎⁠ Happy Birthday Shaka 🤍</p>
+        <p style="font-size: 14px;">27 June is finally here! 🎂<br><br>
+        Happy Birthday to the person who knows me better than anyone else. I'm sorry for being difficult sometimes, but please know u mean everything to me. Let's promise to stay exactly like this forever. 🫶🏻</p>
     </div>
 
     <script>
-        function nextScreen() {
-            document.getElementById("screen1").style.display = "none";
-            document.getElementById("screen2").style.display = "block";
+        function checkPass() {
+            if(document.getElementById('pass').value == "2026") {
+                document.getElementById('screen1').style.display = 'none';
+                document.getElementById('screen2').style.display = 'block';
+            } else { alert("Wrong password!"); }
+        }
+        function nextScreen(id) {
+            document.getElementById('screen2').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
         }
     </script>
 </body>
